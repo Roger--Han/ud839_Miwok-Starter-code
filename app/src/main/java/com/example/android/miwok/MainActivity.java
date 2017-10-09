@@ -15,10 +15,20 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+//    TextView numbers  = (TextView) findViewById(R.id.numbers);
+//    TextView family  = (TextView) findViewById(R.id.family);
+//    TextView colors  = (TextView) findViewById(R.id.colors);
+//    TextView phrases  = (TextView) findViewById(R.id.phrases);
+
+    TextView numbers, family, colors, phrases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +36,51 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        numbers = (TextView) findViewById(R.id.numbers);
+
+        // Set a click listener on that view
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+
+            }
+        });
+
+
+        family = (TextView) findViewById(R.id.family);
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent familysIntent = new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(familysIntent);
+
+            }
+        });
+
+        colors = (TextView) findViewById(R.id.colors);
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorsIntent);
+
+            }
+        });
+        phrases = (TextView) findViewById(R.id.phrases );
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+
+            }
+        });
+
+
     }
+
+
 }
